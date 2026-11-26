@@ -237,6 +237,8 @@ def parsed_args_to_options(args) -> dict[str, Any]:
         'indexFilePath'                : args.index_file,
         'indexFolders'                 : args.index_folders,
         'lazyMounting'                 : bool(args.lazy),
+        'deferMounting'                : bool(args.defer_mounting),
+        'maxOpenArchives'              : args.max_open_archives,
         'passwords'                    : list(args.passwords),
         'parallelizations'             : args.parallelizations,
         'isGnuIncremental'             : args.gnu_incremental,

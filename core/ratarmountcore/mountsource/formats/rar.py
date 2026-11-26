@@ -211,4 +211,5 @@ class RarMountSource(MountSource):
 
     @overrides(MountSource)
     def __exit__(self, exception_type, exception_value, exception_traceback):
+        super().__exit__(exception_type, exception_value, exception_traceback)
         self.fileObject.close()

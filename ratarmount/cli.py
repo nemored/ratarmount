@@ -338,6 +338,18 @@ For further information, see the ReadMe on the project's homepage:
              'mounted on first access to it.')
 
     recursionGroup.add_argument(
+        '--defer-mounting', action=argparse.BooleanOptionalAction, default=False,
+        help='Together with --lazy, show each archive as a folder based on its name and mount it only when something '
+             'looks inside it, so that listing a folder full of archives opens none of them. An archive which cannot '
+             'be read is shown as a file after the first attempt.')
+
+    recursionGroup.add_argument(
+        '--max-open-archives', type=int, default=0,
+        help='Together with --lazy, unmount the least recently used archives so that no more than this many stay '
+             'mounted. Archives with open files, or containing other mounted archives, are kept even beyond the '
+             'limit. 0 means no limit.')
+
+    recursionGroup.add_argument(
         '-s', '--strip-recursive-tar-extension', action=argparse.BooleanOptionalAction, default=False,
         help='If true, then recursively mounted TARs named <file>.tar will be mounted at <file>/. '
              'This might lead to folders of the same name being overwritten, so use with care. '
